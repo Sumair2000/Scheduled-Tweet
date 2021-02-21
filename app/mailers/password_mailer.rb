@@ -8,11 +8,17 @@ class PasswordMailer < ApplicationMailer
   def reset
     @token = params[:user].signed_id(purpose: "password_reset", expires_in: 15.minutes)
 
-    mail to: params[:user].email
+    mail to: params[:user].email, subject: "Reset Password"
   end
 
   def welcome_email(user)
     @user = user
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    mail(to: @user.email, subject: 'Welcome to Scheduled Tweet')
   end
+
+  def registration_confirmation(user)
+    @user = user
+    mail(to: @user.email, subject:"Registration Confirmation")
+  end
+
 end
