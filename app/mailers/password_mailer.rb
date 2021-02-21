@@ -10,4 +10,9 @@ class PasswordMailer < ApplicationMailer
 
     mail to: params[:user].email
   end
+
+  def welcome_email(user)
+    @user = user
+    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+  end
 end
