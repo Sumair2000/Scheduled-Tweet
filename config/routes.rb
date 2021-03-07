@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get "password", to: "passwords#edit", as: :edit_password
   patch "password", to: "passwords#update"
-
+  delete "password", to: "passwords#destroy"
   get "sign_up", to: "registrations#new"
   post "sign_up", to: "registrations#create"
 
